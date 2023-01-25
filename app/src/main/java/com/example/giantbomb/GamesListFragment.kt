@@ -54,17 +54,16 @@ class GamesListFragment : Fragment() {
             queryHint = "Type here to search"
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    fetch(query)
+                    fetchGamesBasedOnSearchText(query)
                     adapter.filter.filter(query)
                     return false
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    fetch(newText)
-                    adapter.filter.filter(query)
+                    fetchGamesBasedOnSearchText(newText)
+                    adapter.filter.filter(newText)
                     return false
                 }
-
             })
         }
     }
@@ -92,7 +91,20 @@ class GamesListFragment : Fragment() {
     private fun setObservers() {
         viewModel.gameResults.observe(viewLifecycleOwner, {
             adapter.notifyDataSetChanged()
+            toggleGameListView(it?.isEmpty())
         })
+    }
+
+    private fun toggleGameListView(empty: Boolean?) {
+        empty?.let { isEmpty ->
+            if (isEmpty) {
+                binding.gamesRecyclerView.visibility = View.GONE
+                binding.noGamesLayout.visibility = View.VISIBLE
+            } else {
+                binding.gamesRecyclerView.visibility = View.VISIBLE
+                binding.noGamesLayout.visibility = View.GONE
+            }
+        }
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
@@ -114,7 +126,7 @@ class GamesListFragment : Fragment() {
         _binding = null
     }
 
-    fun fetch(searchText: String?) {
+    fun fetchGamesBasedOnSearchText(searchText: String?) {
         try {
             retrofitService.getGamesFeed(
                 Constants.API_KEY,
@@ -138,12 +150,12 @@ class GamesListFragment : Fragment() {
                                     })
                             }
                         } else {
-                            d("deepthi", "Ran into an exception")
+                            d("GiantbombApi", "Response was null")
                         }
                     }
 
                     override fun onFailure(call: Call<GamesResponse>, t: Throwable) {
-                        d("deepthi", t.message!!)
+                        d("GiantbombApi", t.message!!)
                     }
                 })
         } catch (e: IOException) {
