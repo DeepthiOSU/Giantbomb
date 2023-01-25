@@ -68,6 +68,7 @@ class GamesListFragment : Fragment() {
                 override fun onQueryTextChange(newText: String?): Boolean {
                     fetchGamesBasedOnSearchText(newText)
                     adapter.filter.filter(newText)
+                    adapter.notifyDataSetChanged()
                     return false
                 }
             })
