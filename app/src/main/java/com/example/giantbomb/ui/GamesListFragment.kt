@@ -1,4 +1,4 @@
-package com.example.giantbomb
+package com.example.giantbomb.ui
 
 import android.os.Bundle
 import android.util.Log.d
@@ -8,9 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.giantbomb.adapter.GamesRecyclerViewAdapter
+import com.example.giantbomb.viewmodel.GamesResultsViewModel
+import com.example.giantbomb.R
+import com.example.giantbomb.api.GiantbombApiService
+import com.example.giantbomb.data.datasource.local.InMemoryGamesStorage
 import com.example.giantbomb.databinding.FragmentFirstBinding
 import com.example.giantbomb.network.GamesResponse
 import com.example.giantbomb.network.RetrofitClientFactory
+import com.example.giantbomb.util.Constants
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

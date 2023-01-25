@@ -1,6 +1,5 @@
-package com.example.giantbomb
+package com.example.giantbomb.data.datasource.local
 
-import com.example.giantbomb.network.GamesStorage
 import com.example.giantbomb.network.Results
 
 open class InMemoryGamesStorage : GamesStorage {

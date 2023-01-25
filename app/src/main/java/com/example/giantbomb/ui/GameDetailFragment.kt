@@ -1,4 +1,4 @@
-package com.example.giantbomb
+package com.example.giantbomb.ui
 
 import android.app.ActionBar
 import android.os.Bundle

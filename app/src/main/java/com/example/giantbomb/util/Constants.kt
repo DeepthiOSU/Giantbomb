@@ -1,4 +1,4 @@
-package com.example.giantbomb
+package com.example.giantbomb.util
 
 object Constants {
     const val BASE_URL = "https://www.giantbomb.com/"

@@ -1,4 +1,4 @@
-package com.example.giantbomb
+package com.example.giantbomb.api
 
 import com.example.giantbomb.network.GamesResponse
 import retrofit2.Call

@@ -1,4 +1,4 @@
-package com.example.giantbomb
+package com.example.giantbomb.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.giantbomb.viewmodel.GamesResultsViewModel
+import com.example.giantbomb.R
 import com.example.giantbomb.network.Results
 import java.util.*
 

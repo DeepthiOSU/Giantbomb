@@ -1,10 +1,10 @@
-package com.example.giantbomb
+package com.example.giantbomb.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.giantbomb.network.GamesStorage
+import com.example.giantbomb.data.datasource.local.GamesStorage
 import com.example.giantbomb.network.Results
 import kotlinx.coroutines.launch
 

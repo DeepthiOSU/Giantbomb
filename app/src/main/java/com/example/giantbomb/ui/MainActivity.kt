@@ -1,17 +1,12 @@
-package com.example.giantbomb
+package com.example.giantbomb.ui
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
-import androidx.appcompat.widget.SearchView
+import com.example.giantbomb.R
 import com.example.giantbomb.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

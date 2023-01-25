@@ -1,8 +1,9 @@
 package com.example.giantbomb
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.giantbomb.network.GamesStorage
+import com.example.giantbomb.data.datasource.local.GamesStorage
 import com.example.giantbomb.network.Results
+import com.example.giantbomb.viewmodel.GamesResultsViewModel
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.RelaxedMockK
