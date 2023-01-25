@@ -10,13 +10,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.giantbomb.databinding.ItemGameBinding
-import com.example.giantbomb.network.GamesResponse
 import com.example.giantbomb.network.Results
 import java.util.*
 
 class GamesRecyclerViewAdapter(
-    val context: Context,
+    private val context: Context,
     private val viewModel: GamesResultsViewModel,
     var onItemClick: ((Results) -> Unit)? = null
 ) : RecyclerView.Adapter<GamesRecyclerViewAdapter.ViewHolder>(), Filterable {
@@ -29,7 +27,7 @@ class GamesRecyclerViewAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var itemView = LayoutInflater.from(context).inflate(R.layout.item_game, parent, false)
+        val itemView = LayoutInflater.from(context).inflate(R.layout.item_game, parent, false)
         return ViewHolder(itemView)
     }
 
@@ -40,7 +38,7 @@ class GamesRecyclerViewAdapter(
             .fitCenter()
             .into(holder.gameImage)
 
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             onItemClick?.invoke(filteredGames[position])
         }
     }
@@ -53,11 +51,11 @@ class GamesRecyclerViewAdapter(
         override fun performFiltering(constraint: CharSequence?): FilterResults {
             val query = constraint.toString()
             val queryResults =
-                if(query.isEmpty()) {
+                if (query.isEmpty()) {
                     viewModel.gameResults.value?.toMutableList() ?: mutableListOf()
                 } else {
                     viewModel.gameResults.value?.filter {
-                        val formattedQuery= query.lowercase(Locale.US)
+                        val formattedQuery = query.lowercase(Locale.US)
                         it.name.contains(formattedQuery)
                     }?.toMutableList() ?: mutableListOf()
                 }

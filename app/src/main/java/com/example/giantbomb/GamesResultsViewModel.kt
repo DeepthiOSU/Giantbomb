@@ -9,7 +9,7 @@ import com.example.giantbomb.network.Results
 import kotlinx.coroutines.launch
 
 
-class GamesResultsViewModel (private val gamesStorage: GamesStorage) : ViewModel() {
+class GamesResultsViewModel(private val gamesStorage: GamesStorage) : ViewModel() {
     private val _gameResults: MutableLiveData<List<Results>> = MutableLiveData()
     val gameResults: LiveData<List<Results>>
         get() = _gameResults
@@ -18,7 +18,7 @@ class GamesResultsViewModel (private val gamesStorage: GamesStorage) : ViewModel
         _gameResults.value = gamesStorage.findAll()
     }
 
-    fun setResults(results : List<Results>) {
+    fun setResults(results: List<Results>) {
         viewModelScope.launch {
             gamesStorage.saveResults(results)
             _gameResults.value = gamesStorage.findAll()

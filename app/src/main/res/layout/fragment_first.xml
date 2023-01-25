@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context="GamesListFragment">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/noGamesScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/noGamesLayout"
@@ -45,7 +46,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gamesRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:overScrollMode="never"
         android:paddingStart="8dp"
         android:paddingEnd="8dp" />

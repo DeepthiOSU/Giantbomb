@@ -9,6 +9,6 @@ data class Image(
     val super_url: String,
     val thumb_url: String,
     val tiny_url: String,
-    val original_url: String, //this one
+    val original_url: String,
     val image_tags: String
 )
